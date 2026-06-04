@@ -225,7 +225,7 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
                     {project.summary}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
+                    {(project.technologies || []).map((tech) => (
                       <span
                         key={tech}
                         className="px-2 py-0.5 text-xs bg-zinc-800 text-zinc-400 rounded-full"
