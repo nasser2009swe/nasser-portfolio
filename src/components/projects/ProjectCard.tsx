@@ -39,7 +39,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
           {/* Tech badges */}
           <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
-            {project.technologies.slice(0, 3).map((tech) => (
+            {(project.technologies || []).slice(0, 3).map((tech) => (
               <span
                 key={tech}
                 className="px-2 py-0.5 text-xs bg-black/60 backdrop-blur-sm text-zinc-300 rounded-full"
@@ -47,9 +47,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 {tech}
               </span>
             ))}
-            {project.technologies.length > 3 && (
+            {(project.technologies || []).length > 3 && (
               <span className="px-2 py-0.5 text-xs bg-black/60 backdrop-blur-sm text-zinc-400 rounded-full">
-                +{project.technologies.length - 3}
+                +{(project.technologies || []).length - 3}
               </span>
             )}
           </div>

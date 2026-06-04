@@ -152,7 +152,7 @@ export default function ProjectDetailPage() {
                 {t('projectDetail.features')}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {project.features.map((feature, index) => (
+                {(project.features || []).map((feature, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 rounded-xl bg-zinc-900/50 border border-zinc-800"
@@ -180,7 +180,7 @@ export default function ProjectDetailPage() {
                   {t('projectDetail.challenges')}
                 </h2>
                 <ul className="space-y-3">
-                  {project.challenges.map((challenge, index) => (
+                  {(project.challenges || []).map((challenge, index) => (
                     <li
                       key={index}
                       className="flex items-start gap-3 p-3 rounded-xl bg-red-500/5 border border-red-500/10"
@@ -199,7 +199,7 @@ export default function ProjectDetailPage() {
                   {t('projectDetail.solutions')}
                 </h2>
                 <ul className="space-y-3">
-                  {project.solutions.map((solution, index) => (
+                  {(project.solutions || []).map((solution, index) => (
                     <li
                       key={index}
                       className="flex items-start gap-3 p-3 rounded-xl bg-green-500/5 border border-green-500/10"
@@ -221,7 +221,7 @@ export default function ProjectDetailPage() {
               <h2 className="text-xl font-semibold text-white mb-4">
                 {t('projectDetail.screenshots')}
               </h2>
-              <ImageGallery images={project.screenshots} />
+              <ImageGallery images={project.screenshots || []} />
             </motion.div>
           </div>
 
@@ -261,7 +261,7 @@ export default function ProjectDetailPage() {
                   {t('projectDetail.technologies')}
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
+                  {(project.technologies || []).map((tech) => (
                     <span
                       key={tech}
                       className="px-3 py-1 text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full"
