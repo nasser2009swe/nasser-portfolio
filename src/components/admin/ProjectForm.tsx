@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { Input, TextArea } from '@/components/ui/Input';
 import { FileUpload } from '@/components/ui/FileUpload';
 import { ProjectFormData, Project } from '@/types';
-import { uploadImageLocally } from '@/lib/local-upload';
+import { uploadImage } from '@/lib/firebase';
 import { useI18n } from '@/context/I18nContext';
 
 interface ProjectFormProps {
@@ -71,13 +71,13 @@ export function ProjectForm({
   };
 
   const handleThumbnailUpload = async (file: File): Promise<string> => {
-    const url = await uploadImageLocally(file, 'thumbnails');
+    const url = await uploadImage(file, 'thumbnails');
     setFormData((prev) => ({ ...prev, thumbnailUrl: url }));
     return url;
   };
 
   const handleScreenshotUpload = async (file: File): Promise<string> => {
-    const url = await uploadImageLocally(file, 'screenshots');
+    const url = await uploadImage(file, 'screenshots');
     setFormData((prev) => ({
       ...prev,
       screenshots: [...prev.screenshots, url],
