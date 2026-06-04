@@ -8,8 +8,7 @@ import {
   FiCheck,
   FiAlertCircle,
 } from 'react-icons/fi';
-import { getFirestore, collection, addDoc, Timestamp } from 'firebase/firestore';
-import { getApps } from 'firebase/app';
+import { supabase } from '@/lib/supabase';
 import { useI18n } from '@/context/I18nContext';
 
 interface FormState {
@@ -46,16 +45,15 @@ export function Contact() {
     setErrorMsg('');
 
     try {
-      if (getApps().length > 0) {
-        const db = getFirestore(getApps()[0]);
-        await addDoc(collection(db, 'messages'), {
+      try {
+        const { error } = await supabase.from('messages').insert([{
           ...form,
-          createdAt: Timestamp.now(),
+          createdAt: new Date().toISOString(),
           read: false,
-        });
-      } else {
-        console.log('Contact form submission (no Firebase):', form);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        }]);
+        if (error) throw error;
+      } catch (err) {
+        console.error('Error saving message:', err);
       }
 
       setStatus('success');

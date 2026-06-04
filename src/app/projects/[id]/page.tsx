@@ -16,7 +16,7 @@ import {
   FiCheckCircle,
 } from 'react-icons/fi';
 import { Project } from '@/types';
-import { getProject, DEMO_PROJECTS } from '@/lib/firebase';
+import { getProject, DEMO_PROJECTS } from '@/lib/supabase';
 import { VideoEmbed } from '@/components/projects/VideoEmbed';
 import { ImageGallery } from '@/components/projects/ImageGallery';
 import { formatDate } from '@/lib/utils';

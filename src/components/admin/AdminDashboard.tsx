@@ -21,7 +21,7 @@ import {
   updateProject,
   deleteProject,
   DEMO_PROJECTS,
-} from '@/lib/firebase';
+} from '@/lib/supabase';
 import { Skeleton, AdminTableSkeleton } from '@/components/ui/Skeleton';
 import { useI18n } from '@/context/I18nContext';
 

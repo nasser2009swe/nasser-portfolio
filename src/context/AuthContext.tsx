@@ -1,12 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { User } from 'firebase/auth';
-import {
-  loginAdmin,
-  logoutAdmin,
-  onAuthChange,
-} from '@/lib/firebase';
+import { User, onAuthChange, loginAdmin, logoutAdmin } from '@/lib/supabase';
 
 interface AuthContextType {
   user: User | null;

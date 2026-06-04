@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { Input, TextArea } from '@/components/ui/Input';
 import { FileUpload } from '@/components/ui/FileUpload';
 import { ProjectFormData, Project } from '@/types';
-import { uploadImage } from '@/lib/firebase';
+import { uploadImage } from '@/lib/supabase';
 import { useI18n } from '@/context/I18nContext';
 
 interface ProjectFormProps {

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Project } from '@/types';
 import { ProjectCard } from '@/components/projects/ProjectCard';
-import { getProjects, DEMO_PROJECTS } from '@/lib/firebase';
+import { getProjects, DEMO_PROJECTS } from '@/lib/supabase';
 import { useI18n } from '@/context/I18nContext';
 
 interface ProjectsGridProps {
